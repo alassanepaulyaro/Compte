@@ -8,13 +8,12 @@
     android:background="#F1F0F3"
     tools:context=".AccountFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_account"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/account_fragment"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
