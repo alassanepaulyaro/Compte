@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">CA_compte</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hello Operation fragment</string>
     <string name="account_fragment">Mes Comptes </string>
     <string name="simulation_Fragment">Simulation</string>
     <string name="user_fragment">A vous de jouer</string>
+    <string name="operation_fragment">Mes Comptes</string>
+
 </resources>

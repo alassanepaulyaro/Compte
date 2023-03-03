@@ -3,19 +3,17 @@ package com.example.ca_compte.model
 import com.example.ca_compte.data.Account
 
 /**
- * Item Bank RecyclerView
+ * Bank Item used in the UI
  */
-sealed class BankRecyclerViewItem {
-
+sealed class BankItem {
     class Title(
         val id: Int,
         val title: String
-    ) : BankRecyclerViewItem()
+    ) : BankItem()
 
-    class BankCA(
+   class BankUi(
+       val name: String,
     val accounts: List<Account>,
-    val isCA: Int,
-    val name: String
-    ): BankRecyclerViewItem()
-
+    var isExpanded: Boolean? = false
+   ) : BankItem()
 }

@@ -1,5 +1,9 @@
 package com.example.ca_compte.data
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Account(
     val balance: Double,
     val contract_number: String,
@@ -10,4 +14,4 @@ data class Account(
     val order: Int,
     val product_code: String,
     val role: Int
-)
+): Parcelable

@@ -3,29 +3,29 @@ package com.example.ca_compte
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import com.example.ca_compte.adapters.BankAdapter
+import com.example.ca_compte.data.Account
+import com.example.ca_compte.model.BankItem
 import com.example.ca_compte.data.Bank
 import com.example.ca_compte.data.UserData
-import com.example.ca_compte.model.BankRecyclerViewAdapter
-import com.example.ca_compte.model.BankRecyclerViewItem
+import com.example.ca_compte.databinding.FragmentAccountBinding
 import com.google.gson.Gson
 import java.io.IOException
-import com.example.ca_compte.databinding.FragmentAccountBinding
+
 /**
  * AccountFragment
  */
-class AccountFragment : Fragment() {
+class AccountFragment : Fragment(), UserClickListener {
 
     private var _binding: FragmentAccountBinding? = null
     private val binding get() = _binding!!
 
-    var listItems = mutableListOf <BankRecyclerViewItem>()
-    private val bankRecyclerViewAdapter = BankRecyclerViewAdapter()
-
+    var listItemsBankUi = mutableListOf <BankItem>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,19 +36,19 @@ class AccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        listItems.clear()
-        listItems.add(BankRecyclerViewItem.Title(1, "Credit Agricole"))
-        listItems.addAll(getListBankCAV1(getUserDataBank(requireContext())))
-        listItems.add(BankRecyclerViewItem.Title(2, "Credit Autre Bank"))
-        listItems.addAll(getListBankOtherV1(getUserDataBank(requireContext())))
 
+        listItemsBankUi.clear()
+        listItemsBankUi.add(BankItem.Title(1, "Credit Agricole"))
+        listItemsBankUi.addAll(getListBankCAV2(getUserDataBank(requireContext())))
+        listItemsBankUi.add(BankItem.Title(2, "Credit Autre Bank"))
+        listItemsBankUi.addAll(getListBankOtherV2(getUserDataBank(requireContext())))
 
+        val bankAdapter = BankAdapter(listItemsBankUi, this)
         binding.recyclerviewAccount.apply {
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = bankRecyclerViewAdapter
+            adapter = bankAdapter
         }
-        bankRecyclerViewAdapter.items = listItems
+
     }
 
     /**
@@ -64,41 +64,35 @@ class AccountFragment : Fragment() {
             Log.d("MainActivity user", ioException.toString())
         }
 
-        // val gson = Gson()
         val userData = Gson().fromJson(jsonString, UserData::class.java)
         return userData.banks
-    }
-
-    fun getListBankCA(banks: List<Bank>): List<Bank>  {
-        return banks.filter { it.isCA == 1 }
-            .sortedBy { it.name }
-    }
-
-    fun getListBankAutre(banks: List<Bank>): List<Bank> {
-        return banks.filter { it.isCA == 0 }
-            .sortedBy { it.name }
     }
 
     /**
      * get list bank CA
      */
-    fun getListBankCAV1(banks: List<Bank>): List<BankRecyclerViewItem.BankCA>  {
+    fun getListBankCAV2(banks: List<Bank>): List<BankItem.BankUi>  {
         return banks.filter { it.isCA == 1 }
             .sortedBy { it.name }
-            .map { BankRecyclerViewItem.BankCA(it.accounts, it.isCA, it.name) }
+            .map { BankItem.BankUi(it.name, it.accounts,  false) }
     }
 
     /**
      * get list bank other
      */
-    fun getListBankOtherV1(banks: List<Bank>): List<BankRecyclerViewItem.BankCA>  {
+    fun getListBankOtherV2(banks: List<Bank>): List<BankItem.BankUi>  {
         return banks.filter { it.isCA == 0 }
             .sortedBy { it.name }
-            .map { BankRecyclerViewItem.BankCA(it.accounts, it.isCA, it.name) }
+            .map { BankItem.BankUi(it.name, it.accounts,  false) }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun mClick(item: Account) {
+        val action = AccountFragmentDirections.actionAccountFragmentToOperationFragment(item)
+        view?.let { Navigation.findNavController(it).navigate(action) }
     }
 }
