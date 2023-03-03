@@ -8,7 +8,11 @@
         android:id="@+id/accountFragment"
         android:name="com.example.ca_compte.AccountFragment"
         android:label="@string/account_fragment"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_operationFragment"
+            app:destination="@id/operationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/simulationFragment"
         android:name="com.example.ca_compte.SimulationFragment"
@@ -19,4 +23,15 @@
         android:name="com.example.ca_compte.UserFragment"
         android:label="@string/user_fragment"
         tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/operationFragment"
+        android:name="com.example.ca_compte.OperationFragment"
+        android:label="@string/operation_fragment" >
+        <action
+            android:id="@+id/action_operationFragment_to_accountFragment2"
+            app:destination="@id/accountFragment" />
+        <argument
+            android:name="account_data"
+            app:argType="com.example.ca_compte.data.Account" />
+    </fragment>
 </navigation>

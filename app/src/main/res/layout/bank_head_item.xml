@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff">
+
+    <TextView
+        android:id="@+id/header_account_tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tool:text="Acc header title" />
+
+    <TextView
+        android:id="@+id/header_account_amount"
+        android:layout_width="106dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/header_account_tittle"
+        app:layout_constraintLeft_toRightOf="@id/header_account_tittle"
+        app:layout_constraintRight_toLeftOf="@id/header_account_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tool:text="Acc header amount" />
+
+    <ImageView
+        android:id="@+id/header_account_image"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_arrow_drop_down"
+        app:layout_constraintBottom_toBottomOf="@+id/header_account_tittle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/header_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="5dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/header_account_tittle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
