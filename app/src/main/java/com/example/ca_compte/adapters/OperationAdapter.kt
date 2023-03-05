@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ca_compte.data.Operation
+import com.example.ca_compte.data.model.Operation
 import com.example.ca_compte.databinding.OperationItemBinding
 import java.text.SimpleDateFormat
 import java.util.*

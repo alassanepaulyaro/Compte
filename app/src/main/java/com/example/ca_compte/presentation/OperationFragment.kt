@@ -1,4 +1,4 @@
-package com.example.ca_compte
+package com.example.ca_compte.presentation
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -19,7 +19,7 @@ class OperationFragment : Fragment() {
 
     private var _binding: FragmentOperationBinding? = null
     private val binding get() = _binding!!
-    val args : OperationFragmentArgs by navArgs()
+    private val args : OperationFragmentArgs by navArgs()
     private lateinit var operationAdapter: OperationAdapter
 
     override fun onCreateView(

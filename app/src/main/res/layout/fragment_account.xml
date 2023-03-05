@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1F0F3"
-    tools:context=".AccountFragment">
+    tools:context=".presentation.AccountFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_account"
