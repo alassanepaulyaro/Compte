@@ -1,6 +1,6 @@
-package com.example.ca_compte
+package com.example.ca_compte.presentation
 
-import com.example.ca_compte.data.Account
+import com.example.ca_compte.data.model.Account
 
 /**
  * User click Interface

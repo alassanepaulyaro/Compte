@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ca_compte.R
-import com.example.ca_compte.UserClickListener
-import com.example.ca_compte.data.Account
+import com.example.ca_compte.presentation.UserClickListener
+import com.example.ca_compte.data.model.Account
 import com.example.ca_compte.databinding.BankHeadItemBinding
 import com.example.ca_compte.databinding.BankSectionTitleBinding
-import com.example.ca_compte.model.BankItem
+import com.example.ca_compte.data.model.BankItem
 
 /**
  * Bank Adapter

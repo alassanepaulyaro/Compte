@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ca_compte.UserClickListener
-import com.example.ca_compte.data.Account
+import com.example.ca_compte.presentation.UserClickListener
+import com.example.ca_compte.data.model.Account
 import com.example.ca_compte.databinding.BankChildItemBinding
 
 /**

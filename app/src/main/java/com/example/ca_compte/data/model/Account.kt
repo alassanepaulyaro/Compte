@@ -1,4 +1,4 @@
-package com.example.ca_compte.data
+package com.example.ca_compte.data.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

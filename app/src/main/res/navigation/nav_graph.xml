@@ -6,7 +6,7 @@
     app:startDestination="@id/accountFragment">
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.example.ca_compte.AccountFragment"
+        android:name="com.example.ca_compte.presentation.AccountFragment"
         android:label="@string/account_fragment"
         tools:layout="@layout/fragment_account" >
         <action
@@ -15,23 +15,23 @@
     </fragment>
     <fragment
         android:id="@+id/simulationFragment"
-        android:name="com.example.ca_compte.SimulationFragment"
+        android:name="com.example.ca_compte.presentation.SimulationFragment"
         android:label="@string/simulation_Fragment"
         tools:layout="@layout/fragment_simulation" />
     <fragment
         android:id="@+id/userFragment"
-        android:name="com.example.ca_compte.UserFragment"
+        android:name="com.example.ca_compte.presentation.UserFragment"
         android:label="@string/user_fragment"
         tools:layout="@layout/fragment_user" />
     <fragment
         android:id="@+id/operationFragment"
-        android:name="com.example.ca_compte.OperationFragment"
+        android:name="com.example.ca_compte.presentation.OperationFragment"
         android:label="@string/operation_fragment" >
         <action
-            android:id="@+id/action_operationFragment_to_accountFragment2"
+            android:id="@+id/action_operationFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
         <argument
             android:name="account_data"
-            app:argType="com.example.ca_compte.data.Account" />
+            app:argType="com.example.ca_compte.data.model.Account" />
     </fragment>
 </navigation>
