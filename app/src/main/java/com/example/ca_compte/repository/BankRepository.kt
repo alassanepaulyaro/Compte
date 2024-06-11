@@ -1,8 +1,8 @@
 package com.example.ca_compte.repository
 
 import com.example.ca_compte.data.model.Bank
-import retrofit2.Response
+import com.example.ca_compte.utils.Resource
 
 interface BankRepository {
-    suspend fun getBankData() : Response<List<Bank>>
+    suspend fun getBanks() : Resource<List<Bank>>
 }
